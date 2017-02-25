@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="main_weather_data"
+            type="com.wordpress.abdullahhafeez.weatherapp.weather_data.Main" />
+
+        <variable
+            name="weather"
+            type="com.wordpress.abdullahhafeez.weatherapp.weather_data.Weather" />
+
+
+    </data>
+
+    <RelativeLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +41,8 @@
         android:layout_alignTop="@+id/textView5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/max_temp_text" />
+        android:id="@+id/max_temp_text"
+        android:text="@={main_weather_data.tempMax}"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -69,7 +84,8 @@
         android:layout_alignBottom="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/pressure_text" />
+        android:id="@+id/pressure_text"
+        android:text="@={main_weather_data.pressure}"/>
 
     <TextView
         android:text="Humidity"
@@ -90,6 +106,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/humidity_text"
+        android:text="@={main_weather_data.humidity}"
         android:textSize="14sp" />
 
     <TextView
@@ -107,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/min_temp_text"
+        android:text="@={main_weather_data.tempMin}"
         android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
         android:layout_alignParentRight="true"
@@ -131,6 +149,10 @@
         android:layout_toEndOf="@+id/textView10"
         android:layout_marginTop="22dp"
         android:id="@+id/desc_text"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:text="@={weather.description}"/>
 
 </RelativeLayout>
+
+
+</layout>
